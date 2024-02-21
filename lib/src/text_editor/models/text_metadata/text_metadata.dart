@@ -11,6 +11,7 @@ class TextMetadata {
   final FontWeight fontWeight;
   final FontStyle fontStyle;
   final double fontSize;
+  final String? fontFamily;
   final TextDecorationEnum decoration;
   final List<FontFeature>? fontFeatures;
   final TextAlign alignment;
@@ -20,6 +21,7 @@ class TextMetadata {
     this.fontWeight = FontWeight.w400,
     this.fontStyle = FontStyle.normal,
     this.fontSize = 14,
+    this.fontFamily,
     this.alignment = TextAlign.start,
     this.decoration = TextDecorationEnum.none,
     this.fontFeatures,
@@ -32,6 +34,7 @@ class TextMetadata {
         fontWeight = style.fontWeight ?? FontWeight.w400,
         fontStyle = style.fontStyle ?? FontStyle.normal,
         fontSize = style.fontSize ?? 14,
+        fontFamily = style.fontFamily ?? 'Anta',
         decoration = style.decoration == null
             ? TextDecorationEnum.none
             : TextDecorationEnum.fromDecoration(style.decoration!),
@@ -42,6 +45,7 @@ class TextMetadata {
     FontWeight? fontWeight,
     FontStyle? fontStyle,
     double? fontSize,
+    String? fontFamily,
     TextDecorationEnum? decoration,
     List<FontFeature>? fontFeatures,
     TextAlign? alignment,
@@ -51,6 +55,7 @@ class TextMetadata {
       fontWeight: fontWeight ?? this.fontWeight,
       fontStyle: fontStyle ?? this.fontStyle,
       fontSize: fontSize ?? this.fontSize,
+      fontFamily: fontFamily ?? this.fontFamily,
       decoration: decoration ?? this.decoration,
       fontFeatures: fontFeatures ?? this.fontFeatures,
       alignment: alignment ?? this.alignment,
@@ -74,6 +79,8 @@ class TextMetadata {
         return copyWith(fontStyle: other.fontStyle);
       case TextMetadataChange.fontSize:
         return copyWith(fontSize: other.fontSize);
+      case TextMetadataChange.fontFamily:
+        return copyWith(fontFamily: other.fontFamily);
       case TextMetadataChange.alignment:
         return copyWith(alignment: other.alignment);
       case TextMetadataChange.fontDecoration:

@@ -7,6 +7,7 @@ enum TextMetadataChange {
   fontWeight,
   fontStyle,
   fontSize,
+  fontFamily,
   alignment,
   fontDecoration,
   fontFeatures;

@@ -372,7 +372,20 @@ class _RichTextEditorController extends TextEditingController {
     );
     changeStyleOnSelectionChange(
       changedMetadata: changedMetadata,
-      change: TextMetadataChange.fontStyle,
+      change: TextMetadataChange.color,
+      modifiedDeltas: deltas.copy,
+      selection: selection,
+    );
+  }
+
+  void changeFontFamily(String fontFamily) {
+    final TextMetadata changedMetadata =
+        (metadata ?? RichTextEditorController.defaultMetadata).copyWith(
+      fontFamily: fontFamily,
+    );
+    changeStyleOnSelectionChange(
+      changedMetadata: changedMetadata,
+      change: TextMetadataChange.fontFamily,
       modifiedDeltas: deltas.copy,
       selection: selection,
     );
